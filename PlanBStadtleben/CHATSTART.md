@@ -1,0 +1,1 @@
+Wir besprechen Stadtleben für Plan B: Terraform. Stadtleben führt Roadlife weiter; Life war ein vorläufiger Name. Lies KONZEPT.md und ../PlanBRoadlifeMod/README.md. Zunächst Konzept, Ziele und erste Erweiterung besprechen. Keine neuen Funktionen implementieren.

@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>0.1.5</Version>
+    <GamePath Condition="'$(GamePath)' == ''">C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform</GamePath>
+    <ManagedPath>$(GamePath)/Plan B Terraform_Data/Managed</ManagedPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(ManagedPath)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/Assembly-CSharp-firstpass.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/UnityEngine*.dll" Private="false" />
+    <Reference Include="../PlanBProductionChains/Dependencies/BepInEx/core/BepInEx.dll" Private="false" />
+    <Reference Include="../PlanBProductionChains/Dependencies/BepInEx/core/0Harmony.dll" Private="false" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><TargetFramework>net48</TargetFramework><LangVersion>latest</LangVersion><Version>0.2.5</Version><GamePath Condition="'$(GamePath)' == ''">C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform</GamePath><ManagedPath>$(GamePath)/Plan B Terraform_Data/Managed</ManagedPath></PropertyGroup>
+ <ItemGroup>
+  <Compile Remove="Inspection/**/*.cs"/><Compile Remove="Checks/**/*.cs"/>
+  <EmbeddedResource Include="Gueterbahnhof_GLB/06_freight_station.glb" LogicalName="PlanBBahnbetrieb.station.glb"/>
+  <EmbeddedResource Include="Gueterbahnhof_GLB/preview_front.png" LogicalName="PlanBBahnbetrieb.station.png"/>
+  <Reference Include="$(ManagedPath)/Newtonsoft.Json.dll" Private="false"/>
+  <Reference Include="$(ManagedPath)/Assembly-CSharp.dll" Private="false"/>
+  <Reference Include="$(ManagedPath)/Assembly-CSharp-firstpass.dll" Private="false"/>
+  <Reference Include="$(ManagedPath)/UnityEngine*.dll" Private="false"/>
+  <Reference Include="$(GamePath)/BepInEx/core/BepInEx.dll" Private="false"/>
+  <Reference Include="$(GamePath)/BepInEx/core/0Harmony.dll" Private="false"/>
+ </ItemGroup>
+</Project>

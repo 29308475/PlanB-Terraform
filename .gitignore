@@ -1,0 +1,11 @@
+**/bin/
+**/obj/
+**/backups/
+**/pending/
+**/Dependencies/
+**/Inspection/
+**/dist/
+.vs/
+*.user
+*.suo
+*.log

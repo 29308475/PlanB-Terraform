@@ -1,0 +1,27 @@
+[
+  {
+    "file": "01_stepped_tower.glb",
+    "parts": 212,
+    "triangles": 1970
+  },
+  {
+    "file": "02_three_module_complex.glb",
+    "parts": 211,
+    "triangles": 1721
+  },
+  {
+    "file": "03_buttressed_reactor.glb",
+    "parts": 234,
+    "triangles": 2013
+  },
+  {
+    "file": "04_antenna_spire.glb",
+    "parts": 152,
+    "triangles": 991
+  },
+  {
+    "file": "05_geodesic_dome.glb",
+    "parts": 166,
+    "triangles": 2198
+  }
+]

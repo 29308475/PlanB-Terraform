@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PlanBSkyscraperMod – 25 Gebäudeentwürfe</title>
+<style>
+body{margin:0;background:#edf0ec;color:#263830;font:15px system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:30px}h1{font-size:28px;margin:0 0 10px}p{max-width:850px;line-height:1.6}.controls{position:sticky;top:0;background:#edf0eced;padding:15px 0;z-index:2;display:flex;align-items:center;gap:15px;flex-wrap:wrap}input{width:190px}#grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:15px}article{background:#fafbf8;border:1px solid #d8dfd8;border-radius:10px;overflow:hidden}canvas{width:100%;height:300px;display:block}footer{padding:12px 15px;border-top:1px solid #e3e8e1}small{display:block;color:#637367;margin-top:4px}
+</style>
+<main><h1>25 eigenständige Gebäudeentwürfe</h1>
+<p>Version 0.15.3: die 25 Entwürfe sind an das Detailset_b angeglichen. Gleiche PBR-Farben, tiefere Fensterlaibungen, innenliegende Querstreben und Lüftungslamellen auf den Dächern. Sechs Entwürfe (01, 03, 08, 12, 19, 24) haben weich gerundete, geneigte Dachabschlüsse; Terrassen und Technikflächen bleiben eben. Skyline-Höhen bleiben erhalten. Geometrievorschau mit Referenzfarben; Schatten und Spielmaterialien müssen im Spiel geprüft werden.</p>
+<p><a href="Reference/Referenzvorschau.html">Neue Gebäude nach den Illustrationen ansehen</a></p>
+<div class="controls"><label>Drehung <input id="yaw" type="range" min="0" max="360" value="35"></label><label>Ansicht von oben <input id="pitch" type="range" min="10" max="65" value="24"></label><label><input id="equal" type="checkbox" style="width:auto"> Gleiche Höhe zum Formenvergleich</label></div>
+<div id="grid"></div></main>
+<script>
+const designs=__DESIGNS__;
+const referenceGallery=designs.length===5;
+if(referenceGallery){document.querySelector('style').textContent+='#grid{grid-template-columns:repeat(auto-fit,minmax(350px,1fr))}canvas{height:450px;background:#dce2e8}';}
+const palette=[[240,245,250],[36,163,232],[252,252,255],[196,209,222],[79,89,105],[196,222,138],[255,222,74]];
+const grid=document.querySelector('#grid');const canvases=[];
+for(const d of designs){const card=document.createElement('article');const canvas=document.createElement('canvas');canvas.width=450;canvas.height=600;const footer=document.createElement('footer');footer.textContent=String(d.id+1).padStart(2,'0')+' · '+d.name;const note=document.createElement('small');note.textContent=Math.round(d.ratio*100)+' % Referenzhöhe · '+d.faces.length+' Flächen'+(d.triangles?' · '+d.triangles+' Dreiecke':'');footer.append(note);card.append(canvas,footer);grid.append(card);canvases.push(canvas);}
+function render(){const yaw=+document.querySelector('#yaw').value*Math.PI/180,pitch=+document.querySelector('#pitch').value*Math.PI/180,equal=document.querySelector('#equal').checked;const cy=Math.cos(yaw),sy=Math.sin(yaw),cp=Math.cos(pitch),sp=Math.sin(pitch);
+for(let i=0;i<designs.length;i++){const d=designs[i],ctx=canvases[i].getContext('2d'),height=(equal?1:d.ratio)*1.6;ctx.fillStyle=(d.flat||d.imported)?'#dce2e8':'#fafbf8';ctx.fillRect(0,0,450,600);const project=p=>{const x=p[0]*cy-p[2]*sy,z=p[0]*sy+p[2]*cy,y=p[1]*height;return{x:225+x*((d.flat||d.imported)?300:190),y:550-(y*cp+z*sp)*((d.flat||d.imported)?300:190),depth:z*cp-y*sp};};const faces=d.faces.map(f=>{const points=f.points.map(project),p=f.points,a=p[0],b=p[1],c=p[2],u=b.map((v,j)=>v-a[j]),v=c.map((v,j)=>v-a[j]);let n=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]];const len=Math.hypot(...n);n=n.map(q=>q/len);let light=d.flat?1:.70+.25*Math.max(0,n[0]*.45+n[1]*.8+n[2]*-.4);const color=(f.color||palette[f.surface]).map(q=>Math.round(q*light));return{points,depth:points.reduce((s,p)=>s+p.depth,0)/points.length,color};}).sort((a,b)=>b.depth-a.depth);const buffer=ctx.getImageData(0,0,450,600),pixels=buffer.data,zbuffer=new Float32Array(450*600);zbuffer.fill(Infinity);
+for(const f of faces){for(let tri=1;tri<f.points.length-1;tri++){const a=f.points[0],b=f.points[tri],c=f.points[tri+1];const area=(b.x-a.x)*(c.y-a.y)-(b.y-a.y)*(c.x-a.x);if(area<=0)continue;const x0=Math.max(0,Math.floor(Math.min(a.x,b.x,c.x))),x1=Math.min(449,Math.ceil(Math.max(a.x,b.x,c.x))),y0=Math.max(0,Math.floor(Math.min(a.y,b.y,c.y))),y1=Math.min(599,Math.ceil(Math.max(a.y,b.y,c.y)));for(let yy=y0;yy<=y1;yy++)for(let xx=x0;xx<=x1;xx++){const px=xx+.5,py=yy+.5,w0=((b.x-px)*(c.y-py)-(b.y-py)*(c.x-px))/area,w1=((c.x-px)*(a.y-py)-(c.y-py)*(a.x-px))/area,w2=1-w0-w1;if(w0<-.00001||w1<-.00001||w2<-.00001)continue;const depth=w0*a.depth+w1*b.depth+w2*c.depth,index=yy*450+xx;if(depth<zbuffer[index]){zbuffer[index]=depth;const n=index*4;pixels[n]=f.color[0];pixels[n+1]=f.color[1];pixels[n+2]=f.color[2];pixels[n+3]=255;}}}}
+ctx.putImageData(buffer,0,0);}
+}
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',render));render();
+</script></html>
+

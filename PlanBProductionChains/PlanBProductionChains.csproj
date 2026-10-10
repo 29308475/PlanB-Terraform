@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>0.6.6</Version>
+    <GamePath Condition="'$(GamePath)' == ''">C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform</GamePath>
+    <ManagedPath>$(GamePath)/Plan B Terraform_Data/Managed</ManagedPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets/Icons/chain-512.png" LogicalName="PlanBProductionChains.Icons.chain.png" />
+    <EmbeddedResource Include="Assets/Icons/rebuild-512.png" LogicalName="PlanBProductionChains.Icons.rebuild.png" />
+    <Compile Remove="Inspection/**/*.cs" />
+    <Compile Remove="Checks/**/*.cs" />
+    <Reference Include="$(ManagedPath)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/Assembly-CSharp-firstpass.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/UnityEngine*.dll" Private="false" />
+    <Reference Include="Dependencies/BepInEx/core/BepInEx.dll" Private="false" />
+    <Reference Include="Dependencies/BepInEx/core/0Harmony.dll" Private="false" />
+  </ItemGroup>
+</Project>

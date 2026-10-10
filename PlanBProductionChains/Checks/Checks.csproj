@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net6.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><UseAppHost>false</UseAppHost></PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../RecipeCatalog.cs" Link="RecipeCatalog.cs" />
+    <Compile Include="../ProductionTree.cs" Link="ProductionTree.cs" />
+    <Compile Include="../ChainBuildPlan.cs" Link="ChainBuildPlan.cs" />
+    <Compile Include="../HexModuleLayout.cs" Link="HexModuleLayout.cs" />
+    <Compile Include="../BuildingRequirements.cs" Link="BuildingRequirements.cs" />
+    <Compile Include="../BuildGroupMemory.cs" Link="BuildGroupMemory.cs" />
+    <Compile Include="../DepotNetworkLayout.cs" Link="DepotNetworkLayout.cs" />
+    <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/Assembly-CSharp.dll" />
+    <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/Assembly-CSharp-firstpass.dll" />
+    <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/UnityEngine.CoreModule.dll" />
+    <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/UnityEngine.UI.dll" />
+  </ItemGroup>
+</Project>

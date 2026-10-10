@@ -1,0 +1,1 @@
+const {spawnSync}=require('child_process');const path=require('path');const root=path.resolve(__dirname,'..');const result=spawnSync('dotnet',['run','--project',path.join(__dirname,'Checks.csproj'),'-c','Release','--','--export',path.join(root,'Assets')],{stdio:'inherit'});process.exitCode=result.status??1;

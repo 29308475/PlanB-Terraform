@@ -1,0 +1,1 @@
+Wir entwickeln ein Konzept für die Plan-B-Terraform-Mod Terraforming-Ansicht. Projektordner: C:\Users\Tony\Documents\Projekt\Unity_Games\PlanBTerraformingAnsicht. Lies zuerst KONZEPT.md. Zunächst Ziele, Umfang und Einordnung besprechen; noch keine Implementierung. Stadtleben ist der neue Name von Roadlife und soll Stadtbelebung bündeln.

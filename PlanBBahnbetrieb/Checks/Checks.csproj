@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+ <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net6.0</TargetFramework><UseAppHost>false</UseAppHost><LangVersion>latest</LangVersion></PropertyGroup>
+ <ItemGroup>
+  <Compile Include="../StationLayout.cs" Link="StationLayout.cs"/>
+  <Compile Include="../GlbAsset.cs" Link="GlbAsset.cs"/>
+  <Compile Include="../SaveIdentity.cs" Link="SaveIdentity.cs"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/Newtonsoft.Json.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/Assembly-CSharp.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/UnityEngine.CoreModule.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/UnityEngine.UI.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/UnityEngine.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/BepInEx/core/BepInEx.dll"/>
+  <Reference Include="C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/BepInEx/core/0Harmony.dll"/>
+ </ItemGroup>
+</Project>

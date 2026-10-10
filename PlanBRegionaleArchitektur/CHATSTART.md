@@ -1,0 +1,1 @@
+Wir entwickeln ein Konzept für die Plan-B-Terraform-Mod Regionale Architektur. Projektordner: C:\Users\Tony\Documents\Projekt\Unity_Games\PlanBRegionaleArchitektur. Lies zuerst KONZEPT.md. Zunächst Ziele, Umfang und Einordnung besprechen; noch keine Implementierung. Stadtleben ist der neue Name von Roadlife und soll Stadtbelebung bündeln.

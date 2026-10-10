@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../VariantRules.cs" Link="VariantRules.cs" />
+    <Compile Include="../BuildingDesign.cs" Link="BuildingDesign.cs" />
+    <Compile Include="../ReferenceDesign.cs" Link="ReferenceDesign.cs" />
+    <Compile Include="../MaterialAppearance.cs" Link="MaterialAppearance.cs" />
+    <Compile Include="../GlbAsset.cs" Link="GlbAsset.cs" />
+    <Compile Include="../FootprintCache.cs" Link="FootprintCache.cs" />
+    <Reference Include="Newtonsoft.Json"><HintPath>C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform/Plan B Terraform_Data/Managed/Newtonsoft.Json.dll</HintPath></Reference>
+    <None Include="Gallery.template.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

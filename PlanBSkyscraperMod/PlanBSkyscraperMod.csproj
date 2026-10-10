@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Version>0.15.4</Version>
+    <GamePath Condition="'$(GamePath)' == ''">C:/Program Files (x86)/Steam/steamapps/common/Plan B Terraform</GamePath>
+    <ManagedPath>$(GamePath)/Plan B Terraform_Data/Managed</ManagedPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Checks/**/*.cs" />
+    <EmbeddedResource Include="Assets/Reference/Gebaeude_GLB_Detailset_b/*.glb" LogicalName="PlanBSkyscraperMod.Glb.%(Filename)%(Extension)" />
+    <Reference Include="$(ManagedPath)/Newtonsoft.Json.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/UnityEngine*.dll" Private="false" />
+    <Reference Include="$(ManagedPath)/Unity.Collections.dll" Private="false" />
+    <Reference Include="$(GamePath)/BepInEx/core/BepInEx.dll" Private="false" />
+    <Reference Include="$(GamePath)/BepInEx/core/0Harmony.dll" Private="false" />
+  </ItemGroup>
+</Project>
